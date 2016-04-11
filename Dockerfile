@@ -10,7 +10,3 @@ RUN yum install -y git curl && \
 
 ENV PATH=${PATH}:/opt/nodejs/bin
 WORKDIR /app
-
-COPY entrypoint.sh /app/entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["start"]
