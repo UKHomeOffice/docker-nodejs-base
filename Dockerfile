@@ -10,4 +10,3 @@ RUN yum install -y curl && \
 
 ENV PATH=${PATH}:/opt/nodejs/bin
 WORKDIR /app
-USER nobody
