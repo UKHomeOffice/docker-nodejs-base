@@ -1,7 +1,10 @@
 FROM quay.io/ukhomeofficedigital/centos-base
 
+RUN groupadd -r nodejs && \
+    useradd -r -g nodejs nodejs -d app
+
 RUN mkdir -p /opt/nodejs /app && \
-    chown -R nobody:nobody /app
+    chown -R nodejs:nodejs /app
 
 WORKDIR /opt/nodejs
 ENV NODE_VERSION v4.4.2
