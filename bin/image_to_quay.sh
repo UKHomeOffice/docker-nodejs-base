@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #get node version from dockerfile
 NODE_VERSION=$(grep "ENV NODE_VERSION" Dockerfile | sed 's/^ENV NODE_VERSION v//');
