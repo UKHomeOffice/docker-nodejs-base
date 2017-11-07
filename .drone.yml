@@ -1,36 +1,31 @@
 pipeline:
   build_app:
-    image: docker:1.11
+    image: docker:17.09.0-ce
     environment:
-      - DOCKER_HOST=tcp://127.0.0.1:2375
+      - DOCKER_HOST=tcp://172.17.0.1:2375
     commands:
-      - docker build -t nodejs-base .
+      - docker build -t nodejs-base:$${DRONE_COMMIT_SHA} .
     when:
       branch: master
       event: push
 
   build_app:
-    image: docker:1.11
+    image: docker:17.09.0-ce
     environment:
-      - DOCKER_HOST=tcp://127.0.0.1:2375
+      - DOCKER_HOST=tcp://172.17.0.1:2375
     commands:
-      - docker build -t nodejs-base .
+      - docker build -t nodejs-base:$${DRONE_COMMIT_SHA} .
     when:
       event: pull_request
 
   image_to_quay:
-    image: docker:1.11
+    image: docker:17.09.0-ce
+    secrets:
+      - docker_password
     environment:
-      - DOCKER_HOST=tcp://127.0.0.1:2375
+      - DOCKER_HOST=tcp://172.17.0.1:2375
     commands:
       - bin/image_to_quay.sh
     when:
       branch: master
       event: push
-services:
-  dind:
-    image: docker:1.11-dind
-    privileged: true
-    command:
-      - "-s"
-      - "overlay"
