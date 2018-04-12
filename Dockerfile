@@ -4,7 +4,7 @@ WORKDIR /opt/nodejs
 ENV NODE_VERSION v8.9.4
 
 RUN groupadd -r nodejs && \
-    useradd -r -u 998 -g nodejs nodejs -d /app && \
+    useradd -r -u 999 -g nodejs nodejs -d /app && \
     mkdir -p /opt/nodejs /app && \
     chown -R nodejs:nodejs /app && \
     yum install -y curl && yum clean all && rpm --rebuilddb && \
