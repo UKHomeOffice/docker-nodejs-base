@@ -1,4 +1,4 @@
-FROM quay.io/ukhomeofficedigital/centos-base
+FROM quay.io/ukhomeofficedigital/centos-base:v0.5.8
 
 WORKDIR /opt/nodejs
 ENV NODE_VERSION v8.11.1
