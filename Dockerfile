@@ -1,7 +1,7 @@
 FROM quay.io/ukhomeofficedigital/centos-base
 
 WORKDIR /opt/nodejs
-ENV NODE_VERSION v8.9.4
+ENV NODE_VERSION v8.11.1
 
 RUN groupadd -r nodejs && \
     useradd -r -u 999 -g nodejs nodejs -d /app && \
