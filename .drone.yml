@@ -1,6 +1,6 @@
 pipeline:
   build_app:
-    image: docker:17.09.0-ce
+    image: docker:18.03.1-ce
     environment:
       - DOCKER_HOST=tcp://172.17.0.1:2375
     commands:
@@ -10,7 +10,7 @@ pipeline:
       event: push
 
   build_app:
-    image: docker:17.09.0-ce
+    image: docker:18.03.1-ce
     environment:
       - DOCKER_HOST=tcp://172.17.0.1:2375
     commands:
@@ -19,7 +19,7 @@ pipeline:
       event: pull_request
 
   image_to_quay:
-    image: docker:17.09.0-ce
+    image: docker:18.03.1-ce
     secrets:
       - docker_password
     environment:
@@ -29,3 +29,4 @@ pipeline:
     when:
       branch: master
       event: push
+
