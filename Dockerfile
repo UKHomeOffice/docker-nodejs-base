@@ -1,4 +1,4 @@
-FROM quay.io/ukhomeofficedigital/centos-base
+FROM centos:latest
 
 WORKDIR /opt/nodejs
 ENV NODE_VERSION v8.11.1
@@ -13,7 +13,7 @@ RUN groupadd -r nodejs && \
 ENV PATH=${PATH}:/opt/nodejs/bin
 WORKDIR /app
 
-ONBUILD RUN yum clean all && \
-    yum update -y -q && \
-    yum clean all && \
-    rpm --rebuilddb
+RUN yum clean all 
+RUN yum update -x 'filesystem*' -y 
+RUN yum clean all
+RUN rpm --rebuilddb
