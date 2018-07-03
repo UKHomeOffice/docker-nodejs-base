@@ -12,7 +12,7 @@ RUN groupadd -r nodejs && \
 
 ENV PATH=${PATH}:/opt/nodejs/bin
 
-RUN npm install -g npm@6
+RUN /opt/nodejs/bin/npm install -g npm@6
 
 WORKDIR /app
 
