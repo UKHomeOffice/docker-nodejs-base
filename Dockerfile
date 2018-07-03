@@ -10,6 +10,8 @@ RUN groupadd -r nodejs && \
     yum install -y curl && yum clean all && rpm --rebuilddb && \
     curl https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.gz | tar xz --strip-components=1
 
+RUN npm install -g npm@6
+
 ENV PATH=${PATH}:/opt/nodejs/bin
 WORKDIR /app
 
