@@ -11,6 +11,9 @@ RUN groupadd -r nodejs && \
     curl https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.gz | tar xz --strip-components=1
 
 ENV PATH=${PATH}:/opt/nodejs/bin
+
+RUN /opt/nodejs/bin/npm install -g npm@6
+
 WORKDIR /app
 
 ONBUILD RUN yum clean all && \
